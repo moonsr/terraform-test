@@ -2,7 +2,7 @@ name: GitHub Actions Sample 2
 on:
  push:
   paths:
-  - 'code/MyApp/**/*'
+  - 'code/src/**/*'
 jobs:
  Explore-GitHub-Actions:
   runs-on: ubuntu-latest
