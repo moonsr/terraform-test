@@ -1,8 +1,7 @@
-name: GitHub Actions Sample 2
+name: GitHub Actions Sample 3
 on:
- push:
-  paths:
-  - 'code/src/**/*'
+ issues:
+  types: [opened]
 jobs:
  Explore-GitHub-Actions:
   runs-on: ubuntu-latest
