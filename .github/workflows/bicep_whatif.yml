@@ -5,23 +5,23 @@ on:
     paths:
       - bicep/**'
 env:
-   bicep_rg: contoso_research_prod_rg
+  bicep_rg: contoso_research_prod_rg
 jobs:
-   bicep:
-      runs-on: ubuntu-latest
-      env:
-        ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
-        ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
-        ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-        ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
-        bicep_rg: Lab
-      steps:
+  bicep:
+    runs-on: ubuntu-latest
+    env:
+      ARM_CLIENT_ID: ${{ secrets.AZURE_AD_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.AZURE_AD_CLIENT_SECRET }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+      ARM_TENANT_ID: ${{ secrets.AZURE_AD_TENANT_ID }}
+      bicep_rg: Lab
+    steps:
         # Checkout the repository to the GitHub Actions runner
-        - uses: actions/checkout@v2
-        - uses: Azure/login@v1
-          with:
-            creds: '{"clientId":"${{ secrets.AZURE_AD_CLIENT_ID }}","clientSecret":"${{  secrets.AZURE_AD_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_AD_TENANT_ID }}"}'
-        - name: run bicep watif
-          run: |
-            cd bicep
-            az deployment group what-if -f ./main.bicep -g ${{ env.bicep_rg }}
+      - uses: actions/checkout@v2
+      - uses: Azure/login@v1
+        with:
+          creds: '{"clientId":"${{ secrets.AZURE_AD_CLIENT_ID }}","clientSecret":"${{  secrets.AZURE_AD_CLIENT_SECRET }}","subscriptionId":"${{ secrets.AZURE_SUBSCRIPTION_ID }}","tenantId":"${{ secrets.AZURE_AD_TENANT_ID }}"}'
+      - name: run bicep watif
+        run: |
+          cd bicep
+          az deployment group what-if -f ./main.bicep -g ${{ env.bicep_rg }}
