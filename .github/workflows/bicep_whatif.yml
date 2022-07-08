@@ -6,6 +6,7 @@ on:
       - bicep/**'
 env:
   bicep_rg: contoso_research_prod_rg
+  
 jobs:
   bicep:
     runs-on: ubuntu-latest
