@@ -1,4 +1,4 @@
-name: GitHub Actions Sample
+name: GitHub Actions Sample 2
 on:
  push:
   paths:
