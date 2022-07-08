@@ -1,8 +1,8 @@
 name: GitHub Actions Sample
 on:
  push:
- paths:
- - 'code/MyApp/**/*'
+  paths:
+  - 'code/MyApp/**/*'
 jobs:
  Explore-GitHub-Actions:
   runs-on: ubuntu-latest
